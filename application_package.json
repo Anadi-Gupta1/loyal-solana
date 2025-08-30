@@ -1,0 +1,57 @@
+{
+  "application_package": {
+    "project_overview": "Solana Loyalty NFTs is a merchant loyalty platform that enables businesses to mint custom-branded loyalty tokens as SPL-NFTs on Solana. Customers receive verifiable on-chain loyalty NFTs for purchases and can redeem them atomically for discounts, perks, or exclusive access. The platform leverages Solana's low fees and fast finality to make micro-loyalty transactions economically viable. Merchants gain programmable loyalty campaigns with transparent redemption tracking, while customers enjoy portable, tradeable loyalty tokens that aren't locked to single platforms. The system includes merchant onboarding tools, campaign management dashboards, customer wallet interfaces, and real-time analytics. Built with Anchor framework for security and composability, featuring atomic mint/redeem operations and replay attack prevention.",
+    "public_good": "This platform democratizes loyalty programs for small-medium merchants who traditionally lack access to sophisticated reward systems. By using Solana's public blockchain, loyalty data becomes transparent and portable across platforms, preventing vendor lock-in. Open-source codebase enables community contributions and merchant customizations. The platform reduces barriers to blockchain adoption for traditional businesses while showcasing Solana's capabilities for real-world commerce applications. Educational documentation and merchant onboarding guides will help non-technical business owners understand and utilize blockchain technology. The project contributes to Solana's ecosystem growth by demonstrating practical utility beyond speculation, potentially onboarding thousands of new users and merchants to the ecosystem.",
+    "team_template": "Our team combines deep Solana/Rust expertise with traditional e-commerce experience. Lead developer has 3+ years building Anchor programs and extensive experience with SPL tokens and program security. Frontend specialist brings React/TypeScript mastery and wallet integration expertise from previous DeFi projects. Business development lead has 5+ years in merchant services and payment processing, understanding real-world merchant needs and compliance requirements. Design lead specializes in Web3 UX, focusing on bridging traditional commerce with blockchain complexity. Team has successfully delivered 2 previous Solana projects and maintains active involvement in the developer community through contributions to Anchor ecosystem tools.",
+    "competitive_advantage": "Unlike existing loyalty platforms that use centralized databases, our solution provides verifiable on-chain proof of loyalty earnings and redemptions. Solana's sub-second finality enables real-time loyalty minting at point-of-sale, impossible with slower blockchains. Our atomic redemption mechanism prevents double-spending while maintaining decentralization. The platform's composability allows third-party integrations (loyalty aggregators, secondary markets) that centralized systems cannot support. Built-in programmable logic enables sophisticated campaigns (time-decay, tier upgrades, cross-merchant partnerships) without complex backend infrastructure. Low transaction costs make micro-loyalty rewards economically viable. Open architecture allows merchants to extend functionality through custom program interactions.",
+    "milestones": [
+      {
+        "milestone_title": "MVP Development & Devnet Deployment",
+        "amount_usd": 12000,
+        "timeline_weeks": 6,
+        "deliverables": ["Complete Anchor program with mint/redeem instructions", "React frontend with wallet integration", "Merchant dashboard for campaign creation", "User interface for NFT viewing/redemption", "Database schema and API endpoints", "3 test merchant onboardings"],
+        "success_criteria": ["Successful mint/redeem transactions on devnet", "3 merchants creating and testing campaigns", "End-to-end user flow from purchase to redemption", "Unit test coverage >80%", "Documentation complete"]
+      },
+      {
+        "milestone_title": "Pilot Program & Analytics",
+        "amount_usd": 7000,
+        "timeline_weeks": 6,
+        "deliverables": ["10 merchant onboardings", "Analytics dashboard", "Mobile-responsive UI", "Integration testing suite", "Merchant feedback integration", "Performance optimizations"],
+        "success_criteria": ["10 active merchants with live campaigns", "100+ successful redemptions", "Analytics tracking key metrics", "Mobile compatibility verified", "Integration tests passing"]
+      },
+      {
+        "milestone_title": "Security Audit & Mainnet Launch",
+        "amount_usd": 4000,
+        "timeline_weeks": 4,
+        "deliverables": ["Security audit completion", "Mainnet program deployment", "Production infrastructure", "Launch documentation", "Community onboarding materials", "Post-launch monitoring"],
+        "success_criteria": ["Clean security audit report", "Successful mainnet deployment", "Zero critical vulnerabilities", "Production uptime >99%", "Launch documentation complete"]
+      }
+    ],
+    "budget_breakdown": [
+      {"item": "Developer Salaries", "amount": 15000, "description": "Core development team compensation"},
+      {"item": "UI/UX Design", "amount": 3000, "description": "Professional design and user experience"},
+      {"item": "Infrastructure", "amount": 2000, "description": "RPC nodes, hosting, monitoring"},
+      {"item": "Security Audit", "amount": 2000, "description": "Professional smart contract audit"},
+      {"item": "Documentation/Community", "amount": 800, "description": "Technical docs, tutorials, onboarding"},
+      {"item": "Miscellaneous", "amount": 200, "description": "Testing tokens, tools, contingency"}
+    ],
+    "technical_architecture": "Frontend: React + TypeScript + Tailwind CSS with @solana/wallet-adapter for authentication. Backend: Supabase for merchant metadata and analytics with real-time subscriptions. On-chain: Anchor program managing loyalty_program (root PDA), merchant_account (per-merchant config), loyalty_nft_mint (campaign-specific), and redemption_record (anti-replay). Architecture uses event-driven design with on-chain events triggering off-chain actions via webhook indexer.",
+    "on_chain_components": [
+      {"component": "loyalty_program", "type": "Root PDA", "seeds": "['loyalty_program']", "description": "Global program configuration and fee settings"},
+      {"component": "merchant_account", "type": "PDA", "seeds": "['merchant', merchant_pubkey]", "description": "Merchant profile, campaign rules, and settings"},
+      {"component": "loyalty_nft_mint", "type": "PDA", "seeds": "['mint', merchant_pubkey, series_id]", "description": "Campaign-specific NFT mint with metadata and redemption rules"},
+      {"component": "redemption_record", "type": "PDA", "seeds": "['redeem', user_pubkey, mint_pubkey, nonce]", "description": "Anti-replay tracking for redeemed NFTs"}
+    ],
+    "security_audit_plan": "Professional audit scheduled for week 14-15 covering: reentrancy protection, PDA derivation security, authority validation, arithmetic overflow protection, and redemption atomicity. Estimated budget: $7,000. Scope includes full program review, integration testing, and economic attack vectors. Post-audit bug bounty program with $2,000 pool.",
+    "open_source_license": "MIT - permissive license encourages merchant adoption and community forks while maintaining maximum flexibility for commercial use",
+    "suggested_grant_tier": "Medium",
+    "suggested_grant_amount_usd": 23000,
+    "metrics_and_KPIs": ["merchant_count (target: 50+ by month 6)", "redemption_tx_per_month (target: 1000+)", "unique_wallets_connected (target: 500+)", "monthly_active_users (target: 200+)", "total_value_locked_in_campaigns", "average_redemption_rate_per_merchant"],
+    "repo_structure_suggestion": "monorepo with /anchor (Rust program), /app (React frontend), /docs (technical documentation), /tests (integration tests), /scripts (deployment utilities), /database (SQL schemas)",
+    "readme_template": "# Solana Loyalty NFTs\n\n## Quick Start\n```bash\nnpm install\nnpm run dev\n```\n\n## Architecture\n- Frontend: React + Wallet Adapter\n- Backend: Supabase\n- Blockchain: Solana + Anchor\n\n## Development\n1. `npm run anchor:build`\n2. `npm run anchor:deploy`\n3. `npm run dev`\n\n## Testing\n- Unit: `npm run test`\n- Integration: `npm run test:integration`",
+    "unit_and_integration_test_checklist": ["✓ Anchor program unit tests (create_merchant, mint_loyalty, redeem)", "✓ Frontend component tests", "✓ API endpoint tests", "✓ Integration: wallet connect → mint → redeem flow", "✓ Error handling tests", "✓ PDA derivation validation", "✓ Authority verification tests"],
+    "deliverables_checklist_for_demo_site": ["✓ Live demo at [domain].vercel.app", "✓ README with setup instructions", "✓ .env.example with required variables", "✓ deploy_devnet.sh script", "✓ Screenshot/GIF of full user flow", "✓ Merchant onboarding guide", "✓ Unit test coverage report", "✓ Integration test suite"],
+    "screenshot_gif_instruction": "Create animated GIF showing: 1) User connects Phantom wallet, 2) Merchant creates loyalty campaign, 3) User receives loyalty NFT for purchase, 4) User redeems NFT for discount, 5) Transaction confirmation on-chain. Duration: 30-45 seconds, highlighting key UI interactions.",
+    "on_chain_accounts_placeholder": "Solana On-Chain Accounts: N/A — program will be deployed to devnet; replace with program ID after deployment. Example placeholder: ProgramID: EXAMPLE_DEVNET_XXXXXXXXX, TokenMint: N/A, FeePayer: N/A"
+  }
+}

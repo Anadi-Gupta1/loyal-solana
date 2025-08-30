@@ -52,6 +52,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				solana: {
+					purple: 'hsl(var(--solana-purple))',
+					green: 'hsl(var(--solana-green))',
+					cyan: 'hsl(var(--solana-cyan))'
+				},
+				loyalty: {
+					gold: 'hsl(var(--loyalty-gold))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
